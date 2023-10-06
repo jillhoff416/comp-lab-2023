@@ -1,0 +1,1106 @@
+                      :-) GROMACS - gmx mdrun, 2020.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd    
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray     
+  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang  
+  Aleksei Iupinov   Christoph Junghans     Joe Jordan     Dimitrios Karkoulis
+    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson    
+  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund   
+    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall   
+    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov  
+   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf      Artem Zhmurov   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2019, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, version 2020.4
+Executable:   /share/apps/gromacs/2020.4/openmpi/intel/bin/gmx_mpi
+Data prefix:  /share/apps/gromacs/2020.4/openmpi/intel
+Working dir:  /scratch/work/courses/CHEM-GA-2671-2023fa/students/jh8862/comp-lab-2023/Week4/Setup/Water-Ions/gromacs
+Process ID:   1755124
+Command line:
+  gmx_mpi mdrun -v -deffnm step5_2
+
+GROMACS version:    2020.4
+Verified release checksum is 79c2857291b034542c26e90512b92fd4b184a1c9d6fa59c55f2e24ccf14e7281
+Precision:          single
+Memory model:       64 bit
+MPI library:        MPI
+OpenMP support:     disabled
+GPU support:        disabled
+SIMD instructions:  AVX_512
+FFT library:        Intel MKL
+RDTSCP usage:       enabled
+TNG support:        enabled
+Hwloc support:      disabled
+Tracing support:    disabled
+C compiler:         /share/apps/openmpi/4.0.5/intel/bin/mpicc Intel 19.1.2.20200623
+C compiler flags:   -xCORE-AVX512 -qopt-zmm-usage=high -mkl=sequential -wd3180 -std=gnu99 -ip -funroll-all-loops -alias-const -ansi-alias -no-prec-div -fimf-domain-exclusion=14 -qoverride-limits -O3 -DNDEBUG
+C++ compiler:       /share/apps/openmpi/4.0.5/intel/bin/mpicxx Intel 19.1.2.20200623
+C++ compiler flags: -xCORE-AVX512 -qopt-zmm-usage=high -mkl=sequential -wd3180 -ip -funroll-all-loops -alias-const -ansi-alias -no-prec-div -fimf-domain-exclusion=14 -qoverride-limits -O3 -DNDEBUG
+
+
+Running on 1 node with total 48 cores, 48 logical cores
+Hardware detected on host gr070.hpc.nyu.edu (the node of MPI rank 0):
+  CPU info:
+    Vendor: Intel
+    Brand:  Intel(R) Xeon(R) Platinum 8268 CPU @ 2.90GHz
+    Family: 6   Model: 85   Stepping: 7
+    Features: aes apic avx avx2 avx512f avx512cd avx512bw avx512vl clfsh cmov cx8 cx16 f16c fma htt intel lahf mmx msr nonstop_tsc pcid pclmuldq pdcm pdpe1gb popcnt pse rdrnd rdtscp sse2 sse3 sse4.1 sse4.2 ssse3 tdt x2apic
+    Number of AVX-512 FMA units: 2
+  Hardware topology: Only logical processor count
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+M. J. Abraham, T. Murtola, R. Schulz, S. Páll, J. C. Smith, B. Hess, E.
+Lindahl
+GROMACS: High performance molecular simulations through multi-level
+parallelism from laptops to supercomputers
+SoftwareX 1 (2015) pp. 19-25
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+S. Páll, M. J. Abraham, C. Kutzner, B. Hess, E. Lindahl
+Tackling Exascale Software Challenges in Molecular Dynamics Simulations with
+GROMACS
+In S. Markidis & E. Laure (Eds.), Solving Software Challenges for Exascale 8759 (2015) pp. 3-27
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+S. Pronk, S. Páll, R. Schulz, P. Larsson, P. Bjelkmar, R. Apostolov, M. R.
+Shirts, J. C. Smith, P. M. Kasson, D. van der Spoel, B. Hess, and E. Lindahl
+GROMACS 4.5: a high-throughput and highly parallel open source molecular
+simulation toolkit
+Bioinformatics 29 (2013) pp. 845-54
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+B. Hess and C. Kutzner and D. van der Spoel and E. Lindahl
+GROMACS 4: Algorithms for highly efficient, load-balanced, and scalable
+molecular simulation
+J. Chem. Theory Comput. 4 (2008) pp. 435-447
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+D. van der Spoel, E. Lindahl, B. Hess, G. Groenhof, A. E. Mark and H. J. C.
+Berendsen
+GROMACS: Fast, Flexible and Free
+J. Comp. Chem. 26 (2005) pp. 1701-1719
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+E. Lindahl and B. Hess and D. van der Spoel
+GROMACS 3.0: A package for molecular simulation and trajectory analysis
+J. Mol. Mod. 7 (2001) pp. 306-317
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+H. J. C. Berendsen, D. van der Spoel and R. van Drunen
+GROMACS: A message-passing parallel molecular dynamics implementation
+Comp. Phys. Comm. 91 (1995) pp. 43-56
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE CITE THE DOI FOR THIS VERSION OF GROMACS ++++
+https://doi.org/10.5281/zenodo.4054979
+-------- -------- --- Thank You --- -------- --------
+
+Input Parameters:
+   integrator                     = md
+   tinit                          = 0
+   dt                             = 0.002
+   nsteps                         = 500000
+   init-step                      = 0
+   simulation-part                = 1
+   comm-mode                      = Linear
+   nstcomm                        = 100
+   bd-fric                        = 0
+   ld-seed                        = 1897429406
+   emtol                          = 10
+   emstep                         = 0.01
+   niter                          = 20
+   fcstep                         = 0
+   nstcgsteep                     = 1000
+   nbfgscorr                      = 10
+   rtpi                           = 0.05
+   nstxout                        = 0
+   nstvout                        = 5000
+   nstfout                        = 5000
+   nstlog                         = 1000
+   nstcalcenergy                  = 100
+   nstenergy                      = 1000
+   nstxout-compressed             = 5000
+   compressed-x-precision         = 1000
+   cutoff-scheme                  = Verlet
+   nstlist                        = 20
+   pbc                            = xyz
+   periodic-molecules             = false
+   verlet-buffer-tolerance        = 0.005
+   rlist                          = 1.223
+   coulombtype                    = PME
+   coulomb-modifier               = Potential-shift
+   rcoulomb-switch                = 0
+   rcoulomb                       = 1.2
+   epsilon-r                      = 1
+   epsilon-rf                     = inf
+   vdw-type                       = Cut-off
+   vdw-modifier                   = Force-switch
+   rvdw-switch                    = 1
+   rvdw                           = 1.2
+   DispCorr                       = No
+   table-extension                = 1
+   fourierspacing                 = 0.12
+   fourier-nx                     = 42
+   fourier-ny                     = 42
+   fourier-nz                     = 42
+   pme-order                      = 4
+   ewald-rtol                     = 1e-05
+   ewald-rtol-lj                  = 0.001
+   lj-pme-comb-rule               = Geometric
+   ewald-geometry                 = 0
+   epsilon-surface                = 0
+   tcoupl                         = Nose-Hoover
+   nsttcouple                     = 20
+   nh-chain-length                = 1
+   print-nose-hoover-chain-variables = false
+   pcoupl                         = No
+   pcoupltype                     = Isotropic
+   nstpcouple                     = -1
+   tau-p                          = 1
+   compressibility (3x3):
+      compressibility[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      compressibility[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      compressibility[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   ref-p (3x3):
+      ref-p[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      ref-p[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      ref-p[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   refcoord-scaling               = No
+   posres-com (3):
+      posres-com[0]= 0.00000e+00
+      posres-com[1]= 0.00000e+00
+      posres-com[2]= 0.00000e+00
+   posres-comB (3):
+      posres-comB[0]= 0.00000e+00
+      posres-comB[1]= 0.00000e+00
+      posres-comB[2]= 0.00000e+00
+   QMMM                           = false
+   QMconstraints                  = 0
+   QMMMscheme                     = 0
+   MMChargeScaleFactor            = 1
+qm-opts:
+   ngQM                           = 0
+   constraint-algorithm           = Lincs
+   continuation                   = true
+   Shake-SOR                      = false
+   shake-tol                      = 0.0001
+   lincs-order                    = 4
+   lincs-iter                     = 1
+   lincs-warnangle                = 30
+   nwall                          = 0
+   wall-type                      = 9-3
+   wall-r-linpot                  = -1
+   wall-atomtype[0]               = -1
+   wall-atomtype[1]               = -1
+   wall-density[0]                = 0
+   wall-density[1]                = 0
+   wall-ewald-zfac                = 3
+   pull                           = false
+   awh                            = false
+   rotation                       = false
+   interactiveMD                  = false
+   disre                          = No
+   disre-weighting                = Conservative
+   disre-mixed                    = false
+   dr-fc                          = 1000
+   dr-tau                         = 0
+   nstdisreout                    = 100
+   orire-fc                       = 0
+   orire-tau                      = 0
+   nstorireout                    = 100
+   free-energy                    = no
+   cos-acceleration               = 0
+   deform (3x3):
+      deform[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   simulated-tempering            = false
+   swapcoords                     = no
+   userint1                       = 0
+   userint2                       = 0
+   userint3                       = 0
+   userint4                       = 0
+   userreal1                      = 0
+   userreal2                      = 0
+   userreal3                      = 0
+   userreal4                      = 0
+   applied-forces:
+     electric-field:
+       x:
+         E0                       = 0
+         omega                    = 0
+         t0                       = 0
+         sigma                    = 0
+       y:
+         E0                       = 0
+         omega                    = 0
+         t0                       = 0
+         sigma                    = 0
+       z:
+         E0                       = 0
+         omega                    = 0
+         t0                       = 0
+         sigma                    = 0
+     density-guided-simulation:
+       active                     = false
+       group                      = protein
+       similarity-measure         = inner-product
+       atom-spreading-weight      = unity
+       force-constant             = 1e+09
+       gaussian-transform-spreading-width = 0.2
+       gaussian-transform-spreading-range-in-multiples-of-width = 4
+       reference-density-filename = reference.mrc
+       nst                        = 1
+       normalize-densities        = true
+       adaptive-force-scaling     = false
+       adaptive-force-scaling-time-constant = 4
+grpopts:
+   nrdf:       23241
+   ref-t:         300
+   tau-t:           1
+annealing:          No
+annealing-npoints:           0
+   acc:	           0           0           0
+   nfreeze:           N           N           N
+   energygrp-flags[  0]: 0
+
+Changing nstlist from 20 to 80, rlist from 1.223 to 1.32
+
+Using 1 MPI process
+
+Non-default thread affinity set, disabling internal thread affinity
+System total charge: 0.000
+Will do PME sum in reciprocal space for electrostatic interactions.
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+U. Essmann, L. Perera, M. L. Berkowitz, T. Darden, H. Lee and L. G. Pedersen 
+A smooth particle mesh Ewald method
+J. Chem. Phys. 103 (1995) pp. 8577-8592
+-------- -------- --- Thank You --- -------- --------
+
+Using a Gaussian width (1/beta) of 0.384195 nm for Ewald
+Potential shift: LJ r^-12: -2.648e-01 r^-6: -5.349e-01, Ewald -8.333e-06
+Initialized non-bonded Ewald tables, spacing: 1.02e-03 size: 1176
+
+
+Using SIMD 4x8 nonbonded short-range kernels
+
+Using a dual 4x8 pair-list setup updated with dynamic pruning:
+  outer list: updated every 80 steps, buffer 0.120 nm, rlist 1.320 nm
+  inner list: updated every 13 steps, buffer 0.002 nm, rlist 1.202 nm
+At tolerance 0.005 kJ/mol/ps per atom, equivalent classical 1x1 list would be:
+  outer list: updated every 80 steps, buffer 0.263 nm, rlist 1.463 nm
+  inner list: updated every 13 steps, buffer 0.052 nm, rlist 1.252 nm
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+S. Miyamoto and P. A. Kollman
+SETTLE: An Analytical Version of the SHAKE and RATTLE Algorithms for Rigid
+Water Models
+J. Comp. Chem. 13 (1992) pp. 952-962
+-------- -------- --- Thank You --- -------- --------
+
+There are: 11615 Atoms
+Center of mass motion removal mode is Linear
+We have the following groups for center of mass motion removal:
+  0:  SOLV
+
+Started mdrun on rank 0 Sat Sep 30 15:56:47 2023
+
+           Step           Time
+              0        0.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.70646e+04   -1.78822e+05    5.45291e+02   -1.61213e+05    2.89819e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32231e+05   -1.32231e+05    2.99963e+02   -1.22298e+03
+
+           Step           Time
+           1000        2.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.68157e+04   -1.78564e+05    5.55023e+02   -1.61193e+05    2.85249e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32668e+05   -1.32287e+05    2.95233e+02   -1.34223e+03
+
+           Step           Time
+           2000        4.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.57127e+04   -1.77621e+05    5.44448e+02   -1.61364e+05    2.86734e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32691e+05   -1.32241e+05    2.96770e+02   -1.85441e+03
+
+           Step           Time
+           3000        6.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.69676e+04   -1.77888e+05    5.97083e+02   -1.60324e+05    2.88879e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31436e+05   -1.32181e+05    2.98991e+02   -1.08762e+03
+
+           Step           Time
+           4000        8.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.72069e+04   -1.78035e+05    5.99020e+02   -1.60229e+05    2.90992e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31130e+05   -1.32167e+05    3.01177e+02   -9.08825e+02
+
+           Step           Time
+           5000       10.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.66653e+04   -1.77775e+05    5.41542e+02   -1.60568e+05    2.89342e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31634e+05   -1.32199e+05    2.99470e+02   -1.31343e+03
+
+           Step           Time
+           6000       12.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.67279e+04   -1.77817e+05    5.71576e+02   -1.60517e+05    2.87258e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31792e+05   -1.32196e+05    2.97312e+02   -1.25276e+03
+
+           Step           Time
+           7000       14.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.70559e+04   -1.78342e+05    5.43781e+02   -1.60743e+05    2.86777e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32065e+05   -1.32178e+05    2.96814e+02   -1.10066e+03
+
+           Step           Time
+           8000       16.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.66515e+04   -1.78002e+05    5.72159e+02   -1.60778e+05    2.90873e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31691e+05   -1.32210e+05    3.01054e+02   -1.31176e+03
+
+           Step           Time
+           9000       18.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.66544e+04   -1.76980e+05    6.11242e+02   -1.59714e+05    2.91770e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.30537e+05   -1.32278e+05    3.01982e+02   -1.16931e+03
+
+           Step           Time
+          10000       20.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.66318e+04   -1.77959e+05    5.44452e+02   -1.60783e+05    2.90708e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31712e+05   -1.32096e+05    3.00884e+02   -1.37128e+03
+
+           Step           Time
+          11000       22.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.74321e+04   -1.79151e+05    5.21889e+02   -1.61197e+05    2.88270e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32370e+05   -1.32183e+05    2.98359e+02   -1.01288e+03
+
+           Step           Time
+          12000       24.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.67676e+04   -1.78284e+05    5.79497e+02   -1.60936e+05    2.89739e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31963e+05   -1.32226e+05    2.99880e+02   -1.31640e+03
+
+           Step           Time
+          13000       26.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.71895e+04   -1.78693e+05    5.60553e+02   -1.60943e+05    2.92766e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31666e+05   -1.32084e+05    3.03014e+02   -1.09579e+03
+
+           Step           Time
+          14000       28.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.67989e+04   -1.77406e+05    5.61891e+02   -1.60045e+05    2.94227e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.30622e+05   -1.32248e+05    3.04525e+02   -1.10214e+03
+
+           Step           Time
+          15000       30.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.63454e+04   -1.77005e+05    5.86195e+02   -1.60073e+05    2.93611e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.30712e+05   -1.32148e+05    3.03888e+02   -1.35504e+03
+
+           Step           Time
+          16000       32.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.75636e+04   -1.78904e+05    5.65815e+02   -1.60775e+05    2.92028e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31572e+05   -1.32046e+05    3.02249e+02   -9.30971e+02
+
+           Step           Time
+          17000       34.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.66680e+04   -1.78137e+05    5.57428e+02   -1.60912e+05    2.86362e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32276e+05   -1.32238e+05    2.96385e+02   -1.41909e+03
+
+           Step           Time
+          18000       36.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.77301e+04   -1.79660e+05    5.74685e+02   -1.61355e+05    2.91392e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32216e+05   -1.32057e+05    3.01592e+02   -8.74363e+02
+
+           Step           Time
+          19000       38.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.75995e+04   -1.79076e+05    5.51131e+02   -1.60926e+05    2.89555e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31970e+05   -1.32075e+05    2.99690e+02   -8.54677e+02
+
+           Step           Time
+          20000       40.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.71780e+04   -1.77961e+05    5.45140e+02   -1.60238e+05    2.86114e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31626e+05   -1.32046e+05    2.96129e+02   -1.01203e+03
+
+           Step           Time
+          21000       42.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.74270e+04   -1.79321e+05    5.59481e+02   -1.61335e+05    2.87059e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32629e+05   -1.31951e+05    2.97106e+02   -1.04801e+03
+
+           Step           Time
+          22000       44.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.68656e+04   -1.78607e+05    6.09648e+02   -1.61132e+05    2.86034e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32529e+05   -1.32151e+05    2.96046e+02   -1.26377e+03
+
+           Step           Time
+          23000       46.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.74994e+04   -1.79049e+05    5.56445e+02   -1.60993e+05    2.90077e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31986e+05   -1.32019e+05    3.00230e+02   -8.56215e+02
+
+           Step           Time
+          24000       48.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.72960e+04   -1.78502e+05    5.76887e+02   -1.60630e+05    2.91004e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31529e+05   -1.32035e+05    3.01190e+02   -1.02716e+03
+
+           Step           Time
+          25000       50.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.74829e+04   -1.78930e+05    5.83184e+02   -1.60864e+05    2.87948e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32069e+05   -1.32102e+05    2.98027e+02   -9.60910e+02
+
+           Step           Time
+          26000       52.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.68214e+04   -1.77886e+05    5.94417e+02   -1.60470e+05    2.92329e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31237e+05   -1.31898e+05    3.02561e+02   -1.16847e+03
+
+           Step           Time
+          27000       54.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.71582e+04   -1.79250e+05    5.62811e+02   -1.61529e+05    2.83661e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.33163e+05   -1.31933e+05    2.93589e+02   -1.15707e+03
+
+           Step           Time
+          28000       56.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.65106e+04   -1.77871e+05    5.79885e+02   -1.60781e+05    2.89097e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31871e+05   -1.32166e+05    2.99215e+02   -1.38511e+03
+
+           Step           Time
+          29000       58.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.69485e+04   -1.78031e+05    5.31610e+02   -1.60551e+05    2.90053e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31546e+05   -1.32025e+05    3.00205e+02   -1.10477e+03
+
+           Step           Time
+          30000       60.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.73410e+04   -1.79508e+05    5.41510e+02   -1.61626e+05    2.87521e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32873e+05   -1.31887e+05    2.97584e+02   -1.11028e+03
+
+           Step           Time
+          31000       62.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.74204e+04   -1.79214e+05    5.38918e+02   -1.61254e+05    2.88230e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32431e+05   -1.32062e+05    2.98319e+02   -1.01446e+03
+
+           Step           Time
+          32000       64.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.71991e+04   -1.78355e+05    5.78841e+02   -1.60577e+05    2.88567e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31721e+05   -1.31979e+05    2.98667e+02   -1.00149e+03
+
+           Step           Time
+          33000       66.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.75726e+04   -1.79411e+05    5.67750e+02   -1.61270e+05    2.92228e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32048e+05   -1.31964e+05    3.02457e+02   -9.64877e+02
+
+           Step           Time
+          34000       68.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.65604e+04   -1.77703e+05    5.61593e+02   -1.60581e+05    2.86417e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31939e+05   -1.32049e+05    2.96442e+02   -1.37262e+03
+
+           Step           Time
+          35000       70.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.66351e+04   -1.78201e+05    5.59926e+02   -1.61006e+05    2.93099e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31696e+05   -1.31865e+05    3.03358e+02   -1.33112e+03
+
+           Step           Time
+          36000       72.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.61771e+04   -1.77497e+05    5.38844e+02   -1.60781e+05    2.87298e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32052e+05   -1.31873e+05    2.97354e+02   -1.64399e+03
+
+           Step           Time
+          37000       74.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.63582e+04   -1.77657e+05    5.51180e+02   -1.60747e+05    2.85379e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32209e+05   -1.31930e+05    2.95367e+02   -1.51041e+03
+
+           Step           Time
+          38000       76.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.71128e+04   -1.78430e+05    5.99095e+02   -1.60718e+05    2.89766e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31742e+05   -1.31985e+05    2.99908e+02   -1.09604e+03
+
+           Step           Time
+          39000       78.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.73014e+04   -1.78949e+05    5.59366e+02   -1.61088e+05    2.91417e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31946e+05   -1.31955e+05    3.01617e+02   -1.06943e+03
+
+           Step           Time
+          40000       80.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.67051e+04   -1.77797e+05    5.70249e+02   -1.60522e+05    2.92550e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31267e+05   -1.31950e+05    3.02789e+02   -1.27949e+03
+
+           Step           Time
+          41000       82.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.68438e+04   -1.78397e+05    5.71957e+02   -1.60982e+05    2.91822e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31799e+05   -1.31807e+05    3.02036e+02   -1.26133e+03
+
+           Step           Time
+          42000       84.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.77141e+04   -1.79929e+05    5.29944e+02   -1.61685e+05    2.89237e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32761e+05   -1.31879e+05    2.99361e+02   -9.75810e+02
+
+           Step           Time
+          43000       86.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.79769e+04   -1.79419e+05    5.98412e+02   -1.60843e+05    2.84897e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32354e+05   -1.31975e+05    2.94869e+02   -7.12834e+02
+
+           Step           Time
+          44000       88.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.76233e+04   -1.79836e+05    5.54820e+02   -1.61658e+05    2.88184e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32839e+05   -1.31969e+05    2.98271e+02   -9.97217e+02
+
+Writing checkpoint, step 44160 at Sat Sep 30 16:11:48 2023
+
+
+           Step           Time
+          45000       90.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.63824e+04   -1.77399e+05    5.58457e+02   -1.60458e+05    2.89981e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31460e+05   -1.31951e+05    3.00131e+02   -1.38505e+03
+
+           Step           Time
+          46000       92.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.70707e+04   -1.78434e+05    5.76844e+02   -1.60786e+05    2.88608e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31926e+05   -1.31909e+05    2.98710e+02   -1.13428e+03
+
+           Step           Time
+          47000       94.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.69211e+04   -1.78480e+05    5.97340e+02   -1.60962e+05    2.90411e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31920e+05   -1.32029e+05    3.00576e+02   -1.20605e+03
+
+           Step           Time
+          48000       96.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.69244e+04   -1.78883e+05    5.51390e+02   -1.61407e+05    2.93155e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32092e+05   -1.31937e+05    3.03416e+02   -1.27528e+03
+
+           Step           Time
+          49000       98.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.67495e+04   -1.77948e+05    5.92038e+02   -1.60606e+05    2.91871e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31419e+05   -1.31901e+05    3.02087e+02   -1.25509e+03
+
+           Step           Time
+          50000      100.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.65147e+04   -1.78324e+05    5.54127e+02   -1.61255e+05    2.88739e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32381e+05   -1.31882e+05    2.98846e+02   -1.46155e+03
+
+           Step           Time
+          51000      102.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.68335e+04   -1.78048e+05    5.52979e+02   -1.60661e+05    2.92703e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31391e+05   -1.31882e+05    3.02948e+02   -1.16979e+03
+
+           Step           Time
+          52000      104.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.72318e+04   -1.79815e+05    6.05462e+02   -1.61978e+05    2.84778e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.33500e+05   -1.31819e+05    2.94745e+02   -1.23693e+03
+
+           Step           Time
+          53000      106.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.72258e+04   -1.78564e+05    6.16677e+02   -1.60722e+05    2.90300e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31692e+05   -1.31835e+05    3.00461e+02   -1.04773e+03
+
+           Step           Time
+          54000      108.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.70907e+04   -1.78109e+05    5.89474e+02   -1.60429e+05    2.87060e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31723e+05   -1.31853e+05    2.97108e+02   -1.01560e+03
+
+           Step           Time
+          55000      110.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.74431e+04   -1.78545e+05    5.80094e+02   -1.60522e+05    2.89066e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31615e+05   -1.31778e+05    2.99184e+02   -9.08914e+02
+
+           Step           Time
+          56000      112.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.65912e+04   -1.77923e+05    5.88220e+02   -1.60744e+05    2.89858e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31758e+05   -1.31761e+05    3.00004e+02   -1.38018e+03
+
+           Step           Time
+          57000      114.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.67687e+04   -1.78179e+05    5.53472e+02   -1.60856e+05    2.85041e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32352e+05   -1.31852e+05    2.95018e+02   -1.32918e+03
+
+           Step           Time
+          58000      116.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.71197e+04   -1.79090e+05    5.49244e+02   -1.61421e+05    2.86190e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32802e+05   -1.31804e+05    2.96208e+02   -1.25769e+03
+
+           Step           Time
+          59000      118.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.74624e+04   -1.78730e+05    6.20705e+02   -1.60647e+05    2.93756e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31271e+05   -1.31874e+05    3.04038e+02   -9.51785e+02
+
+           Step           Time
+          60000      120.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.67289e+04   -1.77847e+05    5.36721e+02   -1.60582e+05    2.88020e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31780e+05   -1.31821e+05    2.98101e+02   -1.30963e+03
+
+           Step           Time
+          61000      122.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.67399e+04   -1.79024e+05    5.69111e+02   -1.61715e+05    2.85332e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.33182e+05   -1.31809e+05    2.95319e+02   -1.44355e+03
+
+           Step           Time
+          62000      124.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.71782e+04   -1.78347e+05    5.98735e+02   -1.60570e+05    2.91086e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31462e+05   -1.31789e+05    3.01274e+02   -1.06263e+03
+
+           Step           Time
+          63000      126.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.71277e+04   -1.79159e+05    5.88037e+02   -1.61443e+05    2.82132e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.33230e+05   -1.31900e+05    2.92008e+02   -1.15088e+03
+
+           Step           Time
+          64000      128.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.71807e+04   -1.78367e+05    5.74449e+02   -1.60612e+05    2.90892e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31523e+05   -1.31718e+05    3.01074e+02   -1.01773e+03
+
+           Step           Time
+          65000      130.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.77686e+04   -1.79359e+05    5.62539e+02   -1.61028e+05    2.91309e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31897e+05   -1.31697e+05    3.01505e+02   -8.07916e+02
+
+           Step           Time
+          66000      132.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.65487e+04   -1.78012e+05    5.67527e+02   -1.60896e+05    2.82158e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32680e+05   -1.31796e+05    2.92034e+02   -1.45173e+03
+
+           Step           Time
+          67000      134.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.78494e+04   -1.78679e+05    5.73741e+02   -1.60256e+05    2.88260e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31430e+05   -1.31848e+05    2.98349e+02   -6.77154e+02
+
+           Step           Time
+          68000      136.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.68719e+04   -1.77968e+05    5.89433e+02   -1.60507e+05    2.94801e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31027e+05   -1.31727e+05    3.05119e+02   -1.18631e+03
+
+           Step           Time
+          69000      138.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.76188e+04   -1.79559e+05    5.50341e+02   -1.61390e+05    2.92220e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32168e+05   -1.31748e+05    3.02448e+02   -9.36352e+02
+
+           Step           Time
+          70000      140.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.72233e+04   -1.79333e+05    5.86587e+02   -1.61523e+05    2.91601e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32363e+05   -1.31647e+05    3.01807e+02   -1.11305e+03
+
+           Step           Time
+          71000      142.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.67940e+04   -1.78138e+05    5.73602e+02   -1.60771e+05    2.92680e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31503e+05   -1.31637e+05    3.02925e+02   -1.21771e+03
+
+           Step           Time
+          72000      144.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.66976e+04   -1.78428e+05    5.42087e+02   -1.61189e+05    2.88291e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32360e+05   -1.31695e+05    2.98382e+02   -1.35999e+03
+
+           Step           Time
+          73000      146.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.70485e+04   -1.78734e+05    5.91249e+02   -1.61094e+05    2.92821e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31812e+05   -1.31712e+05    3.03070e+02   -1.18017e+03
+
+           Step           Time
+          74000      148.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.64643e+04   -1.77391e+05    5.54939e+02   -1.60371e+05    2.91714e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31200e+05   -1.31765e+05    3.01924e+02   -1.40304e+03
+
+           Step           Time
+          75000      150.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.67469e+04   -1.78333e+05    5.78480e+02   -1.61007e+05    2.98526e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31155e+05   -1.31680e+05    3.08975e+02   -1.28341e+03
+
+           Step           Time
+          76000      152.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.72116e+04   -1.78712e+05    5.87921e+02   -1.60912e+05    2.90627e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31849e+05   -1.31726e+05    3.00800e+02   -1.05839e+03
+
+           Step           Time
+          77000      154.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.69690e+04   -1.79008e+05    5.70173e+02   -1.61469e+05    2.85376e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32932e+05   -1.31754e+05    2.95364e+02   -1.28237e+03
+
+           Step           Time
+          78000      156.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.66209e+04   -1.77613e+05    5.81885e+02   -1.60410e+05    2.89958e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31414e+05   -1.31672e+05    3.00106e+02   -1.27777e+03
+
+           Step           Time
+          79000      158.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.72014e+04   -1.77228e+05    5.84410e+02   -1.59442e+05    2.94675e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.29975e+05   -1.31699e+05    3.04990e+02   -7.90809e+02
+
+           Step           Time
+          80000      160.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.74016e+04   -1.78631e+05    5.89025e+02   -1.60640e+05    2.95357e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31105e+05   -1.31483e+05    3.05695e+02   -8.95241e+02
+
+           Step           Time
+          81000      162.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.69841e+04   -1.79287e+05    5.86193e+02   -1.61717e+05    2.88058e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32911e+05   -1.31625e+05    2.98141e+02   -1.34589e+03
+
+           Step           Time
+          82000      164.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.72675e+04   -1.79186e+05    5.29448e+02   -1.61389e+05    2.88066e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.32583e+05   -1.31601e+05    2.98149e+02   -1.13810e+03
+
+           Step           Time
+          83000      166.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.67816e+04   -1.77764e+05    5.51602e+02   -1.60430e+05    2.87706e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.31660e+05   -1.31587e+05    2.97777e+02   -1.23427e+03
+
+           Step           Time
+          84000      168.00000
+
+   Energies (kJ/mol)
+        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential    Kinetic En.
+    1.73395e+04   -1.79526e+05    5.76605e+02   -1.61610e+05    2.84011e+04
+   Total Energy  Conserved En.    Temperature Pressure (bar)
+   -1.33209e+05   -1.31585e+05    2.93952e+02   -1.19614e+03
+
