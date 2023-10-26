@@ -7,4 +7,4 @@ phi: TORSION ATOMS=@phi-2
 # here also you should to use MOLINFO shortcuts
 psi: TORSION ATOMS=@psi-2
 # Print the two collective variables on COLVAR file every step
-PRINT ARG=phi,psi FILE=COLVAR STRIDE=1
+PRINT ARG=phi,psi FILE=COLVAR_ex1_dialaA STRIDE=1
