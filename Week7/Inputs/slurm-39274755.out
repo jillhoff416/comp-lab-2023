@@ -1,0 +1,34 @@
+I1026 15:02:50.134949 22405193063296 run-alphafold-2.2.0.py:116] Mounting /home/jh8862/theory-lab/comp-lab-2023/Week7/Inputs -> /tmp/jh8862/bea581a0b3554514b10c8ecf8cebb1f6/fasta_path_0
+Command to run: MY_ALPHAFOLD_BINDS="--bind /home/jh8862/theory-lab/comp-lab-2023/Week7/Inputs:/tmp/jh8862/bea581a0b3554514b10c8ecf8cebb1f6/fasta_path_0:ro" /bin/bash /scratch/work/public/apps/alphafold/2.2.0/run-alphafold-2.2.0.bash python -u /opt/alphafold/run_alphafold.py --fasta_paths=/tmp/jh8862/bea581a0b3554514b10c8ecf8cebb1f6/fasta_path_0/1UBQfasta --uniref90_database_path=/alphafold-data/uniref90/uniref90.fasta --mgnify_database_path=/alphafold-data/mgnify/mgy_clusters_2018_12.fa --data_dir=/alphafold-data --template_mmcif_dir=/alphafold-data/pdb_mmcif/mmcif_files --obsolete_pdbs_path=/alphafold-data/pdb_mmcif/obsolete.dat --pdb70_database_path=/alphafold-data/pdb70/pdb70 --uniclust30_database_path=/alphafold-data/uniclust30/uniclust30_2018_08/uniclust30_2018_08 --bfd_database_path=/alphafold-data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt --output_dir=/home/jh8862/theory-lab/comp-lab-2023/Week7/Inputs/ --max_template_date=2020-05-14 --db_preset=full_dbs --model_preset=monomer --benchmark=False --use_precomputed_msas=False --num_multimer_predictions_per_model=5 --run_relax=True --use_gpu_relax=True --logtostderr
+I1026 15:03:24.156165 22419789350080 templates.py:857] Using precomputed obsolete pdbs /alphafold-data/pdb_mmcif/obsolete.dat.
+I1026 15:03:26.922504 22419789350080 xla_bridge.py:252] Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+I1026 15:03:27.080626 22419789350080 xla_bridge.py:252] Unable to initialize backend 'tpu': INVALID_ARGUMENT: TpuPlatform is not available.
+I1026 15:03:40.749938 22419789350080 run_alphafold.py:376] Have 5 models: ['model_1_pred_0', 'model_2_pred_0', 'model_3_pred_0', 'model_4_pred_0', 'model_5_pred_0']
+I1026 15:03:40.750132 22419789350080 run_alphafold.py:393] Using random seed 733940493192631416 for the data pipeline
+I1026 15:03:40.750308 22419789350080 run_alphafold.py:161] Predicting 1UBQfasta
+Traceback (most recent call last):
+  File "/opt/alphafold/run_alphafold.py", line 422, in <module>
+    app.run(main)
+  File "/opt/miniconda3/lib/python3.9/site-packages/absl/app.py", line 312, in run
+    _run_main(main, args)
+  File "/opt/miniconda3/lib/python3.9/site-packages/absl/app.py", line 258, in _run_main
+    sys.exit(main(argv))
+  File "/opt/alphafold/run_alphafold.py", line 398, in main
+    predict_structure(
+  File "/opt/alphafold/run_alphafold.py", line 168, in predict_structure
+    os.makedirs(msa_output_dir)
+  File "/opt/miniconda3/lib/python3.9/os.py", line 225, in makedirs
+    mkdir(name, mode)
+NotADirectoryError: [Errno 20] Not a directory: '/home/jh8862/theory-lab/comp-lab-2023/Week7/Inputs/1UBQfasta/msas'
+Traceback (most recent call last):
+  File "/scratch/work/public/apps/alphafold/2.2.0/run-alphafold-2.2.0.py", line 298, in <module>
+    app.run(main)
+  File "/share/apps/python/3.8.6/intel/lib/python3.8/site-packages/absl/app.py", line 312, in run
+    _run_main(main, args)
+  File "/share/apps/python/3.8.6/intel/lib/python3.8/site-packages/absl/app.py", line 258, in _run_main
+    sys.exit(main(argv))
+  File "/scratch/work/public/apps/alphafold/2.2.0/run-alphafold-2.2.0.py", line 253, in main
+    subprocess.run(cmd, shell=True, check=True)
+  File "/share/apps/python/3.8.6/intel/lib/python3.8/subprocess.py", line 512, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command 'MY_ALPHAFOLD_BINDS="--bind /home/jh8862/theory-lab/comp-lab-2023/Week7/Inputs:/tmp/jh8862/bea581a0b3554514b10c8ecf8cebb1f6/fasta_path_0:ro" /bin/bash /scratch/work/public/apps/alphafold/2.2.0/run-alphafold-2.2.0.bash python -u /opt/alphafold/run_alphafold.py --fasta_paths=/tmp/jh8862/bea581a0b3554514b10c8ecf8cebb1f6/fasta_path_0/1UBQfasta --uniref90_database_path=/alphafold-data/uniref90/uniref90.fasta --mgnify_database_path=/alphafold-data/mgnify/mgy_clusters_2018_12.fa --data_dir=/alphafold-data --template_mmcif_dir=/alphafold-data/pdb_mmcif/mmcif_files --obsolete_pdbs_path=/alphafold-data/pdb_mmcif/obsolete.dat --pdb70_database_path=/alphafold-data/pdb70/pdb70 --uniclust30_database_path=/alphafold-data/uniclust30/uniclust30_2018_08/uniclust30_2018_08 --bfd_database_path=/alphafold-data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt --output_dir=/home/jh8862/theory-lab/comp-lab-2023/Week7/Inputs/ --max_template_date=2020-05-14 --db_preset=full_dbs --model_preset=monomer --benchmark=False --use_precomputed_msas=False --num_multimer_predictions_per_model=5 --run_relax=True --use_gpu_relax=True --logtostderr' returned non-zero exit status 1.
